@@ -63,6 +63,7 @@ $(function() {
         $.each(games, function (gameIndex, gameValue) {
 
             let discountInfo = `<span class="discount position-absolute badge badge-info">% ${parseInt(gameValue.discountRatio)}</span>`;
+            let oldPrice = gameValue.oldPrice > gameValue.currentPrice ? "$" + gameValue.oldPrice : '';
             if(gameValue.discountRatio <= 0) discountInfo = '';
 
             html +=  `
@@ -78,7 +79,7 @@ $(function() {
                                 $${gameValue.currentPrice}
                             </span>
                             <span class="oldPrice">
-                                $${gameValue.oldPrice}
+                                ${oldPrice}
                             </span>
                         </div>
                         </div>
